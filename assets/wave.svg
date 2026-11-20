@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 36" width="100%" fill="none">
+  <defs>
+    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#38BDF8" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.8"/>
+      <stop offset="75%" stop-color="#38BDF8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      @keyframes drift {
+        0%, 100% { transform: translateX(0px); }
+        50% { transform: translateX(-18px); }
+      }
+      .wave-path {
+        animation: drift 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <line x1="0" y1="18" x2="850" y2="18" stroke="#21262D" stroke-width="1"/>
+  <path class="wave-path" d="M0 18 Q 110 6, 220 18 T 440 18 T 660 18 T 880 18" stroke="url(#line-grad)" stroke-width="1.5" fill="none"/>
+</svg>

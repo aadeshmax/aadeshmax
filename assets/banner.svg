@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 220" width="100%" fill="none">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117"/>
+      <stop offset="100%" stop-color="#131922"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="78%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.14"/>
+      <stop offset="55%" stop-color="#818CF8" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="sweep-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <pattern id="dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#30363D" opacity="0.55"/>
+    </pattern>
+
+    <clipPath id="card-clip">
+      <rect width="850" height="220" rx="14"/>
+    </clipPath>
+
+    <style>
+      .title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        fill: #F0F6FC;
+        letter-spacing: -0.02em;
+      }
+      .handle {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        fill: #7D8590;
+      }
+      .subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 15.5px;
+        fill: #9198A1;
+      }
+      .pill-text {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 11.5px;
+        fill: #3FB950;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.45; transform: scale(0.85); }
+      }
+      @keyframes sweep {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes bar1 {
+        0%, 100% { height: 14px; y: 103px; }
+        50% { height: 34px; y: 93px; }
+      }
+      @keyframes bar2 {
+        0%, 100% { height: 28px; y: 96px; }
+        50% { height: 12px; y: 104px; }
+      }
+      @keyframes bar3 {
+        0%, 100% { height: 18px; y: 101px; }
+        50% { height: 40px; y: 90px; }
+      }
+      @keyframes bar4 {
+        0%, 100% { height: 32px; y: 94px; }
+        50% { height: 16px; y: 102px; }
+      }
+      .status-dot {
+        transform-origin: 54px 168px;
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      .radar-sweep {
+        transform-origin: 690px 110px;
+        animation: sweep 9s linear infinite;
+      }
+      .eq-1 { animation: bar1 1.6s ease-in-out infinite; }
+      .eq-2 { animation: bar2 1.3s ease-in-out infinite; }
+      .eq-3 { animation: bar3 1.8s ease-in-out infinite; }
+      .eq-4 { animation: bar4 1.4s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#card-clip)">
+    <!-- Background -->
+    <rect width="850" height="220" fill="url(#bg-grad)"/>
+    <rect width="850" height="220" fill="url(#dot-grid)"/>
+    <rect width="850" height="220" fill="url(#glow)"/>
+
+    <!-- Right-side animated motif: Radar rings + Signal waveform -->
+    <g opacity="0.85">
+      <circle cx="690" cy="110" r="76" stroke="#21262D" stroke-width="1"/>
+      <circle cx="690" cy="110" r="52" stroke="#21262D" stroke-width="1" stroke-dasharray="4 4"/>
+      <circle cx="690" cy="110" r="28" stroke="#30363D" stroke-width="1"/>
+
+      <!-- Crosshairs -->
+      <line x1="604" y1="110" x2="776" y2="110" stroke="#21262D" stroke-width="1"/>
+      <line x1="690" y1="24" x2="690" y2="196" stroke="#21262D" stroke-width="1"/>
+
+      <!-- Rotating radar sweep -->
+      <g class="radar-sweep">
+        <path d="M690 110 L690 34 A76 76 0 0 1 755 72 Z" fill="url(#sweep-grad)" opacity="0.55"/>
+        <line x1="690" y1="110" x2="690" y2="34" stroke="#38BDF8" stroke-width="1.5" opacity="0.7"/>
+      </g>
+
+      <!-- Subtle equalizer / signal bars in center -->
+      <rect class="eq-1" x="676" y="103" width="4" height="14" rx="2" fill="#38BDF8" opacity="0.85"/>
+      <rect class="eq-2" x="684" y="96" width="4" height="28" rx="2" fill="#818CF8" opacity="0.85"/>
+      <rect class="eq-3" x="692" y="101" width="4" height="18" rx="2" fill="#38BDF8" opacity="0.85"/>
+      <rect class="eq-4" x="700" y="94" width="4" height="32" rx="2" fill="#818CF8" opacity="0.85"/>
+
+      <!-- Blip dots -->
+      <circle cx="724" cy="76" r="3" fill="#38BDF8">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="648" cy="138" r="2.5" fill="#818CF8">
+        <animate attributeName="opacity" values="0.9;0.2;0.9" dur="4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- Left-side typography -->
+    <text x="44" y="58" class="handle">~/aadeshmax</text>
+    <text x="44" y="100" class="title">Aadesh</text>
+    <text x="44" y="130" class="subtitle">Applied AI, backend systems, and cross-platform apps.</text>
+
+    <!-- Status pill -->
+    <rect x="44" y="154" width="178" height="28" rx="14" fill="#161B22" stroke="#21262D" stroke-width="1"/>
+    <circle class="status-dot" cx="58" cy="168" r="4" fill="#3FB950"/>
+    <text x="70" y="172" class="pill-text">building &amp; shipping</text>
+  </g>
+
+  <!-- Outer border -->
+  <rect x="0.5" y="0.5" width="849" height="219" rx="13.5" stroke="#21262D" stroke-width="1"/>
+</svg>
